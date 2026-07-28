@@ -3,15 +3,7 @@ using System.Collections.Generic;
 
 namespace CsharpStudy
 {
-    internal enum DeviceParseResult
-    {
-        Success,
-        EmptyInput,
-        MissingDeviceType,
-        InvalidDeviceTypeFormat,
-        UnsupportedDeviceType,
-        InvalidAddress
-    }
+    
     internal class Program
     {
         private static readonly List<string> ValidDeviceTypes = new List<string> { "D", "M", "ZR" };
@@ -69,22 +61,6 @@ namespace CsharpStudy
 
             address = 0;
             return false;
-        }
-
-        internal class DeviceParseInfo
-        {
-            public DeviceParseResult Result { get; set; }
-
-            public string DeviceType { get; set; }
-
-            public int Address { get; set; }
-
-            public DeviceParseInfo(DeviceParseResult result, string deviceType, int address)
-            {
-                this.Result = result;
-                this.DeviceType = deviceType;
-                this.Address = address;
-            }
         }
 
         static DeviceParseInfo ParseDevice(string device)
