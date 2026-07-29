@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CsharpStudy
 {
-    internal class DeviceParser
+    static internal class DeviceParser
     {
         private static readonly List<string> ValidDeviceTypes = new List<string> { "D", "M", "ZR" };
 
@@ -51,7 +48,7 @@ namespace CsharpStudy
 
             return new DeviceParseInfo(DeviceParseResult.InvalidAddress, "", 0);
         }
-        static int FindFirstDigitIndex(string text)
+        private static int FindFirstDigitIndex(string text)
         {
             for (int i = 0; i < text.Length; i++)
             {
@@ -62,7 +59,7 @@ namespace CsharpStudy
             }
             return -1;
         }
-        static bool IsAllLetters(string text, int endIndex)
+        private static bool IsAllLetters(string text, int endIndex)
         {
             for (int i = 0; i < endIndex; i++)
             {
@@ -73,12 +70,12 @@ namespace CsharpStudy
             return true;
         }
 
-        static bool IsSupportedDeviceType(string deviceType)
+        private static bool IsSupportedDeviceType(string deviceType)
         {
             return ValidDeviceTypes.Contains(deviceType);
         }
 
-        static bool TryParseAddress(string addressText, out int address)
+        private static bool TryParseAddress(string addressText, out int address)
         {
             if (int.TryParse(addressText, out int parsedAddress)
                 && parsedAddress >= 0)
